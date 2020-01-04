@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        config([
+            'sample.message' => env('SAMPLE_MESSAGE'),
+            'sample.data' => explode(',', env('SAMPLE_DATA'))
+        ]);
     }
 }

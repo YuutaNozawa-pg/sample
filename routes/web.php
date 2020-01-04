@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware([App\Http\Middleware\HelloMiddleware::class])->group(function () {
+    Route::get('/hello', 'HelloController@index');
+    Route::get('/hello/other/{msg}', 'HelloController@other');
+    Route::get('/hello/{person}', 'HelloController@detail');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
