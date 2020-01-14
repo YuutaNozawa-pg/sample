@@ -19,14 +19,11 @@ class CreateShopPositionsTable extends Migration
             $table->integer('shop_id');
             $table->string('lat');
             $table->string('lng');
+            $table->geometry('position');
             $table->timestamps();
         });
 
-        Schema::table('shop_positions', function (Blueprint $table) {
-            DB::statement("ALTER TABLE shop_positions ADD COLUMN position geometry GENERATED ALWAYS AS (ST_GeometryFromText('POINT(lng lat)', 4326)) STORED AFTER lng");
-        });
 
-        
     }
     /**
      * Reverse the migrations.

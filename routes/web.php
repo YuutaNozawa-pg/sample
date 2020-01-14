@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'shop'], function($route) {
+    $route->get('', 'IndexShopController');
+    $route->get('{shop_id}', 'DetailShopController');
+});

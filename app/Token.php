@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Person extends Model
+class Token extends Model
 {
     //
-    protected $table = 'person';
 }
